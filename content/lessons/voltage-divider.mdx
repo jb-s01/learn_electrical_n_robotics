@@ -1,0 +1,36 @@
+---
+title: "Voltage Dividers"
+lessonId: "b3-voltage-divider"
+description: "Creating intermediate voltages with two resistors"
+---
+
+## Overview
+
+A **voltage divider** uses two resistors in series to create an output voltage that is a fraction of the input.
+
+## The Formula
+
+For resistors R1 (top) and R2 (bottom) with input voltage Vin:
+
+**Vout = Vin × R2 / (R1 + R2)**
+
+## Why It Matters
+
+Voltage dividers appear everywhere:
+- Setting reference voltages for sensors
+- Biasing transistor circuits
+- Creating logic-level signals from higher voltages
+
+<Callout type="tip">
+If you need 2.5V from a 5V supply, choose R1 = R2 for a equal split!
+</Callout>
+
+<CircuitSimulator
+  circuitFile="voltage-divider.txt"
+  lessonId="b3-voltage-divider"
+  labInstructions={[
+    "Run the simulation and measure Vout at the junction between resistors",
+    "Change resistor values and predict the new Vout",
+    "Verify Vout matches the divider formula"
+  ]}
+/>

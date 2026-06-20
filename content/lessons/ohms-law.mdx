@@ -1,0 +1,40 @@
+---
+title: "Ohm's Law"
+lessonId: "b3-ohms-law"
+description: "The relationship V = I × R"
+---
+
+## Overview
+
+Ohm's Law is the most important equation in electronics: **V = I × R** (Voltage = Current × Resistance).
+
+<WaterAnalogy />
+
+## The Formula
+
+- **V** (Volts) — electrical "pressure" pushing charge through a circuit
+- **I** (Amperes) — rate of charge flow
+- **R** (Ohms) — opposition to current flow
+
+If you know any two values, you can find the third:
+- I = V / R
+- R = V / I
+
+## Example
+
+A 9V battery connected to a 900Ω resistor:
+- Current I = 9V / 900Ω = **0.01 A = 10 mA**
+
+<Callout type="warning">
+Always calculate expected current before powering a circuit. Excessive current destroys components!
+</Callout>
+
+<CircuitSimulator
+  circuitFile="ohms-law.txt"
+  lessonId="b3-ohms-law"
+  labInstructions={[
+    "Run the simulation and observe voltage and current readings",
+    "Change the resistor value and note how current changes",
+    "Verify that doubling resistance halves the current"
+  ]}
+/>

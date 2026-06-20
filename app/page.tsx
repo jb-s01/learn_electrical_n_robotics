@@ -1,65 +1,153 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ProgressRing } from "@/components/progress/ProgressRing";
+import { ModuleCard } from "@/components/progress/ModuleCard";
+import { OllamaStatus } from "@/components/chat/OllamaStatus";
+import {
+  curriculum,
+  getFirstAvailableLesson,
+  getLevelProgress,
+  getOverallProgress,
+  getModulesByLevel,
+  getLessonsByModule,
+  getLessonStatus,
+} from "@/lib/curriculum";
+import { getProgressData } from "@/lib/progress/service";
+import { ArrowRight, BookOpen, Bot, Layers } from "lucide-react";
 
-export default function Home() {
+export default async function DashboardPage() {
+  const { progress, enrolledTracks } = await getProgressData();
+  const overall = getOverallProgress(progress, enrolledTracks);
+  const beginner = getLevelProgress("beginner", progress, enrolledTracks);
+  const intermediate = getLevelProgress("intermediate", progress, enrolledTracks);
+  const advanced = getLevelProgress("advanced", progress, enrolledTracks);
+  const continueLesson = getFirstAvailableLesson(progress, enrolledTracks);
+
+  const beginnerModules = getModulesByLevel("beginner");
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="mx-auto max-w-6xl px-4 py-8">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold tracking-tight">Welcome to ElectroLearn</h1>
+        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+          Learn electronics visually — from atoms to advanced embedded systems
+        </p>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-3">
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle>Your Progress</CardTitle>
+            <CardDescription>Core curriculum completion</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap items-center gap-8">
+              <ProgressRing
+                completed={overall.completed}
+                total={overall.total}
+                label="core lessons"
+              />
+              <div className="space-y-2 text-sm">
+                <p>
+                  <span className="font-medium">Beginner:</span>{" "}
+                  {beginner.completed}/{beginner.total}
+                </p>
+                <p>
+                  <span className="font-medium">Intermediate:</span>{" "}
+                  {intermediate.completed}/{intermediate.total}
+                </p>
+                <p>
+                  <span className="font-medium">Advanced:</span>{" "}
+                  {advanced.completed}/{advanced.total}
+                </p>
+              </div>
+            </div>
+            {continueLesson && (
+              <div className="mt-6 flex items-center gap-4 rounded-lg bg-blue-50 p-4 dark:bg-blue-950/30">
+                <BookOpen className="h-8 w-8 text-blue-600" />
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-blue-900 dark:text-blue-200">
+                    Continue learning
+                  </p>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">
+                    {continueLesson.title}
+                  </p>
+                </div>
+                <Link href={`/lesson/${continueLesson.slug}`}>
+                  <Button className="gap-2">
+                    Continue <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <div className="space-y-4">
+          <OllamaStatus />
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">Quick Links</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <Link href="/tutor" className="flex items-center gap-2 text-sm hover:text-blue-600">
+                <Bot className="h-4 w-4" /> AI Tutor
+              </Link>
+              <Link href="/tracks" className="flex items-center gap-2 text-sm hover:text-blue-600">
+                <Layers className="h-4 w-4" /> Optional Tracks
+              </Link>
+              <Link href="/path/beginner" className="flex items-center gap-2 text-sm hover:text-blue-600">
+                <BookOpen className="h-4 w-4" /> Beginner Path
+              </Link>
+            </CardContent>
+          </Card>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      <section className="mt-10">
+        <h2 className="mb-4 text-xl font-semibold">Beginner Modules</h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {beginnerModules.map((mod) => {
+            const lessons = getLessonsByModule(mod.id);
+            const completed = lessons.filter(
+              (l) => getLessonStatus(l, progress, enrolledTracks) === "completed"
+            ).length;
+            return (
+              <ModuleCard
+                key={mod.id}
+                moduleId={mod.id}
+                title={mod.title}
+                description={mod.description}
+                completed={completed}
+                total={lessons.length}
+                level="beginner"
+              />
+            );
+          })}
         </div>
-      </main>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="mb-4 text-xl font-semibold">Learning Paths</h2>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {(["beginner", "intermediate", "advanced"] as const).map((level) => {
+            const lp = getLevelProgress(level, progress, enrolledTracks);
+            return (
+              <Link key={level} href={`/path/${level}`}>
+                <Card className="transition-shadow hover:shadow-md">
+                  <CardHeader>
+                    <CardTitle className="capitalize">{level}</CardTitle>
+                    <CardDescription>
+                      {lp.completed}/{lp.total} lessons complete
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }

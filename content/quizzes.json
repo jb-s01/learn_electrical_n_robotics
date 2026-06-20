@@ -1,0 +1,1787 @@
+{
+  "b1-atoms-charge": [
+    {
+      "question": "Which statement best describes the main topic of \"Atoms, Charge & Current\"?",
+      "options": [
+        "Explain protons, electrons, and charge",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain protons, electrons, and charge"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Describe conventional current flow",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Atoms, Charge & Current, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b1-voltage-current": [
+    {
+      "question": "Which statement best describes the main topic of \"Voltage & Current\"?",
+      "options": [
+        "Define voltage and current with water analogies",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Define voltage and current with water analogies"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Identify units: volts and amperes",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Voltage & Current, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b1-power-units": [
+    {
+      "question": "Which statement best describes the main topic of \"Power & Units\"?",
+      "options": [
+        "Calculate power with P=VI",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Calculate power with P=VI"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Convert between mA, µA, kΩ, MΩ",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Power & Units, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b1-safety-intro": [
+    {
+      "question": "Which statement best describes the main topic of \"Electrical Safety Basics\"?",
+      "options": [
+        "Identify low vs dangerous voltage levels",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Identify low vs dangerous voltage levels"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Apply current limiting for LEDs",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Electrical Safety Basics, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b2-resistors": [
+    {
+      "question": "Which statement best describes the main topic of \"Resistors\"?",
+      "options": [
+        "Read resistor color codes",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Read resistor color codes"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Choose appropriate power rating",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Resistors, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b2-capacitors": [
+    {
+      "question": "Which statement best describes the main topic of \"Capacitors\"?",
+      "options": [
+        "Explain how capacitors store charge",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain how capacitors store charge"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Identify polarized vs non-polarized caps",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Capacitors, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b2-inductors-led": [
+    {
+      "question": "Which statement best describes the main topic of \"Inductors & LEDs\"?",
+      "options": [
+        "Describe basic inductor behavior",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Describe basic inductor behavior"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Explain LED polarity and forward voltage",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Inductors & LEDs, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b2-diodes": [
+    {
+      "question": "Which statement best describes the main topic of \"Diodes\"?",
+      "options": [
+        "Explain diode forward and reverse bias",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain diode forward and reverse bias"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Use diodes for reverse polarity protection",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Diodes, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b3-ohms-law": [
+    {
+      "question": "What is Ohm's Law?",
+      "options": [
+        "V = I × R",
+        "P = V × I",
+        "I = C × V",
+        "R = L / I"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ohm's Law states V = I × R."
+    },
+    {
+      "question": "A 12V source drives 100Ω. What is the current?",
+      "options": [
+        "120 mA",
+        "12 mA",
+        "1.2 A",
+        "0.12 mA"
+      ],
+      "correctIndex": 0,
+      "explanation": "I = V/R = 12/100 = 0.12 A = 120 mA."
+    },
+    {
+      "question": "If resistance doubles and voltage stays the same, current:",
+      "options": [
+        "Doubles",
+        "Halves",
+        "Stays the same",
+        "Quadruples"
+      ],
+      "correctIndex": 1,
+      "explanation": "I = V/R, so doubling R halves I."
+    }
+  ],
+  "b3-series-parallel": [
+    {
+      "question": "Which statement best describes the main topic of \"Series & Parallel\"?",
+      "options": [
+        "Calculate series resistance (R1+R2)",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Calculate series resistance (R1+R2)"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Calculate parallel resistance",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Series & Parallel, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b3-voltage-divider": [
+    {
+      "question": "Two equal resistors divide 10V. Vout is:",
+      "options": [
+        "10V",
+        "5V",
+        "2.5V",
+        "0V"
+      ],
+      "correctIndex": 1,
+      "explanation": "Equal resistors split voltage equally: 10V / 2 = 5V."
+    },
+    {
+      "question": "Voltage divider formula Vout = Vin × R2/(R1+R2) applies when:",
+      "options": [
+        "Resistors are in series",
+        "Resistors are in parallel",
+        "Using capacitors only",
+        "Using inductors only"
+      ],
+      "correctIndex": 0,
+      "explanation": "The divider formula applies to series-connected resistors."
+    },
+    {
+      "question": "Voltage dividers are commonly used to:",
+      "options": [
+        "Create reference voltages for sensors",
+        "Increase supply voltage",
+        "Store energy",
+        "Generate AC power"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dividers scale down voltage for sensor references and logic levels."
+    }
+  ],
+  "b4-multimeter": [
+    {
+      "question": "Which statement best describes the main topic of \"Using a Multimeter\"?",
+      "options": [
+        "Measure DC voltage in parallel",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Measure DC voltage in parallel"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Measure current in series",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Using a Multimeter, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b4-breadboard": [
+    {
+      "question": "Which statement best describes the main topic of \"Breadboarding\"?",
+      "options": [
+        "Identify breadboard power rails and rows",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Identify breadboard power rails and rows"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Build a simple circuit on a breadboard",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Breadboarding, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b4-bench-power": [
+    {
+      "question": "Which statement best describes the main topic of \"Bench Power Supplies\"?",
+      "options": [
+        "Set CC/CV mode on a bench supply",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Set CC/CV mode on a bench supply"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Use current limiting to protect circuits",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Bench Power Supplies, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b5-led-circuit": [
+    {
+      "question": "Why does an LED need a series resistor?",
+      "options": [
+        "To limit current and prevent burnout",
+        "To increase brightness indefinitely",
+        "To reverse polarity protection only",
+        "LEDs don't need resistors"
+      ],
+      "correctIndex": 0,
+      "explanation": "Without a resistor, excessive current destroys the LED."
+    },
+    {
+      "question": "Typical LED forward current is:",
+      "options": [
+        "10-20 mA",
+        "1-2 A",
+        "100 mA minimum",
+        "0 A"
+      ],
+      "correctIndex": 0,
+      "explanation": "Most indicator LEDs run well at 10-20 mA."
+    },
+    {
+      "question": "For 5V and a 2V LED at 15mA, resistor ≈",
+      "options": [
+        "200Ω",
+        "5Ω",
+        "10kΩ",
+        "1MΩ"
+      ],
+      "correctIndex": 0,
+      "explanation": "R = (5-2)/0.015 ≈ 200Ω."
+    }
+  ],
+  "b5-rc-timing": [
+    {
+      "question": "Which statement best describes the main topic of \"RC Timing Circuits\"?",
+      "options": [
+        "Explain RC time constant τ = RC",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain RC time constant τ = RC"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Predict charge/discharge curves",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to RC Timing Circuits, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "b5-switch-logic": [
+    {
+      "question": "Which statement best describes the main topic of \"Switches & Logic\"?",
+      "options": [
+        "Wire SPST and pushbutton switches",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Wire SPST and pushbutton switches"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Implement AND/OR logic with switches",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Switches & Logic, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i1-ac-basics": [
+    {
+      "question": "Which statement best describes the main topic of \"AC Waveforms\"?",
+      "options": [
+        "Describe AC vs DC",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Describe AC vs DC"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Identify frequency and amplitude",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to AC Waveforms, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i1-rms": [
+    {
+      "question": "Which statement best describes the main topic of \"RMS Values\"?",
+      "options": [
+        "Calculate RMS from peak voltage",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Calculate RMS from peak voltage"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Compare AC and DC heating equivalence",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to RMS Values, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i1-cap-filters": [
+    {
+      "question": "Which statement best describes the main topic of \"Capacitors in AC & Filters\"?",
+      "options": [
+        "Explain capacitive reactance",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain capacitive reactance"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Design a simple RC low-pass filter",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Capacitors in AC & Filters, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i2-transistors": [
+    {
+      "question": "Which statement best describes the main topic of \"BJT Transistors\"?",
+      "options": [
+        "Identify BJT pins (B, C, E)",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Identify BJT pins (B, C, E)"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Use a transistor as a low-side switch",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to BJT Transistors, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i2-mosfet": [
+    {
+      "question": "Which statement best describes the main topic of \"MOSFETs\"?",
+      "options": [
+        "Compare BJT vs MOSFET",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Compare BJT vs MOSFET"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Drive a MOSFET from GPIO",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to MOSFETs, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i2-h-bridge": [
+    {
+      "question": "Which statement best describes the main topic of \"H-Bridge Intro\"?",
+      "options": [
+        "Explain H-bridge topology",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain H-bridge topology"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Control motor direction with 4 switches",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to H-Bridge Intro, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i3-logic-gates": [
+    {
+      "question": "Which statement best describes the main topic of \"Logic Gates\"?",
+      "options": [
+        "Build truth tables for basic gates",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Build truth tables for basic gates"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Combine gates for simple logic",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Logic Gates, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i3-flip-flops": [
+    {
+      "question": "Which statement best describes the main topic of \"Flip-Flops & Memory\"?",
+      "options": [
+        "Explain SR and D flip-flops",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain SR and D flip-flops"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Understand clocked logic",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Flip-Flops & Memory, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i4-gpio": [
+    {
+      "question": "Which statement best describes the main topic of \"GPIO Fundamentals\"?",
+      "options": [
+        "Configure pins as input or output",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Configure pins as input or output"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Read buttons and drive LEDs from code",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to GPIO Fundamentals, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i4-adc-uart": [
+    {
+      "question": "Which statement best describes the main topic of \"ADC & UART\"?",
+      "options": [
+        "Read analog sensors with ADC",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Read analog sensors with ADC"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Send debug data over UART",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to ADC & UART, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i5-pwm": [
+    {
+      "question": "Which statement best describes the main topic of \"PWM Control\"?",
+      "options": [
+        "Explain duty cycle and frequency",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain duty cycle and frequency"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Control LED brightness with PWM",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to PWM Control, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "i5-sensors": [
+    {
+      "question": "Which statement best describes the main topic of \"Encoders & IMU Overview\"?",
+      "options": [
+        "Explain quadrature encoders",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain quadrature encoders"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Describe accelerometer and gyroscope basics",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Encoders & IMU Overview, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "a1-switching-regulators": [
+    {
+      "question": "Which statement best describes the main topic of \"Switching Regulators\"?",
+      "options": [
+        "Compare linear vs switching regulators",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Compare linear vs switching regulators"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Explain buck converter operation",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Switching Regulators, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "a1-thermal": [
+    {
+      "question": "Which statement best describes the main topic of \"Thermal Management\"?",
+      "options": [
+        "Estimate power dissipation",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Estimate power dissipation"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Select heat sinks and copper area",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Thermal Management, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "a2-i2c-spi": [
+    {
+      "question": "Which statement best describes the main topic of \"I2C & SPI\"?",
+      "options": [
+        "Compare I2C vs SPI tradeoffs",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Compare I2C vs SPI tradeoffs"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Wire I2C with pull-ups",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to I2C & SPI, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "a2-can": [
+    {
+      "question": "Which statement best describes the main topic of \"CAN Bus\"?",
+      "options": [
+        "Explain CAN arbitration and termination",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain CAN arbitration and termination"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Identify CAN use cases in robotics",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to CAN Bus, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "a3-pid": [
+    {
+      "question": "Which statement best describes the main topic of \"PID Control\"?",
+      "options": [
+        "Explain P, I, and D terms intuitively",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain P, I, and D terms intuitively"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Tune a simple PID loop",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to PID Control, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "a4-pcb-design": [
+    {
+      "question": "Which statement best describes the main topic of \"PCB Design Workflow\"?",
+      "options": [
+        "Create a schematic in KiCad",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Create a schematic in KiCad"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Place components and route traces",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to PCB Design Workflow, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "a5-system-integration": [
+    {
+      "question": "Which statement best describes the main topic of \"System Integration & Debug\"?",
+      "options": [
+        "Create a system power budget",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Create a system power budget"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Apply basic EMI mitigation",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to System Integration & Debug, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "r-i1-kinematics": [
+    {
+      "question": "Which statement best describes the main topic of \"Robot Kinematics Intuition\"?",
+      "options": [
+        "Define DOF for simple mechanisms",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Define DOF for simple mechanisms"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Compare revolute vs prismatic joints",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Robot Kinematics Intuition, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "r-i2-motors": [
+    {
+      "question": "Which statement best describes the main topic of \"Motor Types for Robotics\"?",
+      "options": [
+        "Choose motor type for an application",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Choose motor type for an application"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Understand torque vs speed tradeoffs",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Motor Types for Robotics, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "r-i3-ros2": [
+    {
+      "question": "Which statement best describes the main topic of \"ROS 2 Concepts\"?",
+      "options": [
+        "Explain nodes and topics",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain nodes and topics"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Describe publish/subscribe pattern",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to ROS 2 Concepts, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "r-i4-sensor-fusion": [
+    {
+      "question": "Which statement best describes the main topic of \"Sensor Fusion Overview\"?",
+      "options": [
+        "Explain why single sensors fail",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain why single sensors fail"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Describe complementary filter intuition",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Sensor Fusion Overview, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "r-i5-line-follower": [
+    {
+      "question": "Which statement best describes the main topic of \"Line Follower Architecture\"?",
+      "options": [
+        "Design a line follower block diagram",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Design a line follower block diagram"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Select sensors and motor driver",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Line Follower Architecture, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "e-i1-ml-constraints": [
+    {
+      "question": "Which statement best describes the main topic of \"ML vs Embedded Constraints\"?",
+      "options": [
+        "Compare cloud vs edge inference",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Compare cloud vs edge inference"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Identify MCU resource limits",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to ML vs Embedded Constraints, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "e-i2-tinyml": [
+    {
+      "question": "Which statement best describes the main topic of \"TinyML Pipeline\"?",
+      "options": [
+        "Outline train-quantize-deploy pipeline",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Outline train-quantize-deploy pipeline"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Explain quantization benefits",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to TinyML Pipeline, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "e-i3-tflite": [
+    {
+      "question": "Which statement best describes the main topic of \"TensorFlow Lite Micro\"?",
+      "options": [
+        "Describe TFLite Micro architecture",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Describe TFLite Micro architecture"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Understand tensor arena memory",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to TensorFlow Lite Micro, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "e-i4-keyword-spotting": [
+    {
+      "question": "Which statement best describes the main topic of \"Keyword Spotting Example\"?",
+      "options": [
+        "Explain MFCC feature extraction",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain MFCC feature extraction"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Design a keyword spotting pipeline",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Keyword Spotting Example, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "r-a1-slam": [
+    {
+      "question": "Which statement best describes the main topic of \"SLAM Introduction\"?",
+      "options": [
+        "Define SLAM problem",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Define SLAM problem"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Compare lidar vs visual SLAM",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to SLAM Introduction, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "r-a2-path-planning": [
+    {
+      "question": "Which statement best describes the main topic of \"Path Planning\"?",
+      "options": [
+        "Explain A* search intuition",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain A* search intuition"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Design obstacle maps",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Path Planning, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "r-a3-manipulators": [
+    {
+      "question": "Which statement best describes the main topic of \"Manipulator Kinematics\"?",
+      "options": [
+        "Define forward vs inverse kinematics",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Define forward vs inverse kinematics"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Compute end-effector position for 2-link arm",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Manipulator Kinematics, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "e-a1-npu-deploy": [
+    {
+      "question": "Which statement best describes the main topic of \"NPU Deployment\"?",
+      "options": [
+        "Compare CPU vs NPU inference",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Compare CPU vs NPU inference"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Understand STM32 NPU and similar hardware",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to NPU Deployment, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "e-a2-quantization": [
+    {
+      "question": "Which statement best describes the main topic of \"Quantization Tradeoffs\"?",
+      "options": [
+        "Explain post-training quantization",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Explain post-training quantization"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Measure accuracy vs size tradeoffs",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Quantization Tradeoffs, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ],
+  "e-a3-pipeline-profiling": [
+    {
+      "question": "Which statement best describes the main topic of \"Pipeline Profiling\"?",
+      "options": [
+        "Profile pre/post processing overhead",
+        "This topic is unrelated to electronics",
+        "Only advanced engineers need this knowledge",
+        "This concept has no practical applications"
+      ],
+      "correctIndex": 0,
+      "explanation": "Profile pre/post processing overhead"
+    },
+    {
+      "question": "What is a key learning objective of this lesson?",
+      "options": [
+        "Memorizing formulas without understanding",
+        "Optimize memory allocation",
+        "Skipping safety practices",
+        "Avoiding hands-on practice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Understanding concepts deeply helps you apply them in real projects."
+    },
+    {
+      "question": "When working with circuits related to Pipeline Profiling, you should:",
+      "options": [
+        "Ignore component ratings",
+        "Work safely and verify calculations before powering on",
+        "Always use maximum voltage available",
+        "Never use a multimeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Safe lab practices protect you and your components."
+    }
+  ]
+}

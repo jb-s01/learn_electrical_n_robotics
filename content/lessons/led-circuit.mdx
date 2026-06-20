@@ -1,0 +1,34 @@
+---
+title: "LED + Resistor Circuit"
+lessonId: "b5-led-circuit"
+description: "Build and simulate your first complete circuit"
+---
+
+## Overview
+
+An LED (Light Emitting Diode) is a diode that emits light when current flows through it in the forward direction. Without a current-limiting resistor, the LED will burn out instantly.
+
+## Calculating the Resistor
+
+**R = (Vsupply - Vled) / Iled**
+
+Typical values:
+- Red LED forward voltage: ~1.8V
+- Desired current: ~10-20 mA
+
+For 5V supply and red LED at 15mA:
+**R = (5 - 1.8) / 0.015 = 213Ω → use 220Ω**
+
+<Callout type="warning">
+LED polarity matters! The longer leg (anode) connects to positive through the resistor.
+</Callout>
+
+<CircuitSimulator
+  circuitFile="led-circuit.txt"
+  lessonId="b5-led-circuit"
+  labInstructions={[
+    "Run the simulation and confirm the LED lights up",
+    "Measure current through the LED — should be under 20mA",
+    "Try removing the resistor and observe what happens (simulation only!)"
+  ]}
+/>
