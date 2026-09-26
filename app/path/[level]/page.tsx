@@ -10,6 +10,7 @@ import type { Level } from "@/lib/curriculum/types";
 import { getProgressData } from "@/lib/progress/service";
 import { LessonCard } from "@/components/progress/ModuleCard";
 import { Badge } from "@/components/ui/badge";
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 
 const validLevels: Level[] = ["beginner", "intermediate", "advanced"];
 
@@ -49,15 +50,16 @@ export default async function PathPage({
               {mod.id}: {mod.title}
             </h2>
             <p className="mb-4 text-sm text-zinc-500">{mod.description}</p>
-            <div className="grid gap-3">
+            <Stagger className="grid gap-3">
               {lessons.map((lesson) => (
-                <LessonCard
-                  key={lesson.id}
-                  lesson={lesson}
-                  status={getLessonStatus(lesson, progress as ProgressMap, enrolledTracks)}
-                />
+                <StaggerItem key={lesson.id}>
+                  <LessonCard
+                    lesson={lesson}
+                    status={getLessonStatus(lesson, progress as ProgressMap, enrolledTracks)}
+                  />
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </section>
         );
       })}
@@ -80,19 +82,20 @@ export default async function PathPage({
                 <h3 className="mb-3 font-medium capitalize">
                   {trackId.replace("-", " ")} track
                 </h3>
-                <div className="grid gap-3">
+                <Stagger className="grid gap-3">
                   {trackLessons.map((lesson) => (
-                    <LessonCard
-                      key={lesson.id}
-                      lesson={lesson}
-                      status={getLessonStatus(
-                        lesson,
-                        progress as ProgressMap,
-                        enrolledTracks
-                      )}
-                    />
+                    <StaggerItem key={lesson.id}>
+                      <LessonCard
+                        lesson={lesson}
+                        status={getLessonStatus(
+                          lesson,
+                          progress as ProgressMap,
+                          enrolledTracks
+                        )}
+                      />
+                    </StaggerItem>
                   ))}
-                </div>
+                </Stagger>
               </div>
             );
           })}

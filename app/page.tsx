@@ -14,7 +14,9 @@ import {
   getLessonStatus,
 } from "@/lib/curriculum";
 import { getProgressData } from "@/lib/progress/service";
-import { ArrowRight, BookOpen, Bot, Layers } from "lucide-react";
+import { ArrowRight, BookOpen, Bot, Layers, Sparkles } from "lucide-react";
+import { HoverLift, Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { HeroCircuit } from "@/components/visuals/HeroCircuit";
 
 export default async function DashboardPage() {
   const { progress, enrolledTracks } = await getProgressData();
@@ -28,14 +30,40 @@ export default async function DashboardPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Welcome to ElectroLearn</h1>
-        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-          Learn electronics visually — from atoms to advanced embedded systems
-        </p>
-      </div>
+      <section className="relative mb-8 overflow-hidden rounded-3xl border border-zinc-200 bg-gradient-to-br from-white via-blue-50/60 to-cyan-50/60 px-6 py-12 dark:border-zinc-800 dark:from-zinc-950 dark:via-blue-950/20 dark:to-cyan-950/10 sm:px-10">
+        <HeroCircuit />
+        <div className="relative max-w-xl">
+          <Reveal>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white/80 px-3 py-1 text-xs font-medium text-blue-700 backdrop-blur dark:border-blue-900 dark:bg-zinc-950/70 dark:text-blue-300">
+              <Sparkles className="h-3.5 w-3.5" /> Interactive, visual, hands-on
+            </span>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+              Welcome to{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                ElectroLearn
+              </span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">
+              Learn electronics visually — from atoms to advanced embedded systems
+            </p>
+          </Reveal>
+          {continueLesson && (
+            <Reveal delay={0.24}>
+              <Link href={`/lesson/${continueLesson.slug}`} className="mt-6 inline-block">
+                <Button size="lg" className="gap-2 shadow-lg shadow-blue-600/20">
+                  Continue: {continueLesson.title} <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </Reveal>
+          )}
+        </div>
+      </section>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <Reveal className="grid gap-6 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <CardHeader>
             <CardTitle>Your Progress</CardTitle>
@@ -103,50 +131,63 @@ export default async function DashboardPage() {
             </CardContent>
           </Card>
         </div>
-      </div>
+      </Reveal>
 
       <section className="mt-10">
-        <h2 className="mb-4 text-xl font-semibold">Beginner Modules</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal>
+          <h2 className="mb-4 text-xl font-semibold">Beginner Modules</h2>
+        </Reveal>
+        <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {beginnerModules.map((mod) => {
             const lessons = getLessonsByModule(mod.id);
             const completed = lessons.filter(
               (l) => getLessonStatus(l, progress, enrolledTracks) === "completed"
             ).length;
             return (
-              <ModuleCard
-                key={mod.id}
-                moduleId={mod.id}
-                title={mod.title}
-                description={mod.description}
-                completed={completed}
-                total={lessons.length}
-                level="beginner"
-              />
+              <StaggerItem key={mod.id}>
+                <ModuleCard
+                  moduleId={mod.id}
+                  title={mod.title}
+                  description={mod.description}
+                  completed={completed}
+                  total={lessons.length}
+                  level="beginner"
+                />
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
       </section>
 
       <section className="mt-10">
-        <h2 className="mb-4 text-xl font-semibold">Learning Paths</h2>
-        <div className="grid gap-4 sm:grid-cols-3">
+        <Reveal>
+          <h2 className="mb-4 text-xl font-semibold">Learning Paths</h2>
+        </Reveal>
+        <Stagger className="grid gap-4 sm:grid-cols-3">
           {(["beginner", "intermediate", "advanced"] as const).map((level) => {
             const lp = getLevelProgress(level, progress, enrolledTracks);
+            const pct = lp.total > 0 ? (lp.completed / lp.total) * 100 : 0;
             return (
-              <Link key={level} href={`/path/${level}`}>
-                <Card className="transition-shadow hover:shadow-md">
-                  <CardHeader>
-                    <CardTitle className="capitalize">{level}</CardTitle>
-                    <CardDescription>
-                      {lp.completed}/{lp.total} lessons complete
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              </Link>
+              <StaggerItem key={level}>
+                <Link href={`/path/${level}`} className="block h-full">
+                  <HoverLift>
+                    <Card className="h-full transition-shadow hover:border-blue-200 hover:shadow-md dark:hover:border-blue-900">
+                      <CardHeader>
+                        <CardTitle className="capitalize">{level}</CardTitle>
+                        <CardDescription>
+                          {lp.completed}/{lp.total} lessons complete
+                        </CardDescription>
+                        <div className="mt-2 h-1 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
+                          <div className="h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400" style={{ width: `${pct}%` }} />
+                        </div>
+                      </CardHeader>
+                    </Card>
+                  </HoverLift>
+                </Link>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
       </section>
     </div>
   );
