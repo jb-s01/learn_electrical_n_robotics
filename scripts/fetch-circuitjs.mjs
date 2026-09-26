@@ -44,6 +44,18 @@ function permutationFiles(nocache) {
   return [...new Set(nocache.match(/[0-9A-F]{32}/g) ?? [])].map((hash) => `${hash}.cache.js`);
 }
 
+function stylesheets(nocache) {
+  return [...new Set([...nocache.matchAll(/installOneStylesheet\('([^']+\.css)'\)/g)].map((m) => m[1]))];
+}
+
+function stylesheetAssets(cssPath, css) {
+  const dir = path.posix.dirname(cssPath);
+  const urls = [...css.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/g)].map((m) => m[1]);
+  return urls
+    .filter((u) => !/^(data:|https?:|\/)/.test(u))
+    .map((u) => path.posix.normalize(path.posix.join(dir, u)));
+}
+
 function exampleCircuits(setupList) {
   const files = new Set(["blank.txt"]);
   for (const raw of setupList.split("\n")) {
@@ -58,7 +70,8 @@ function exampleCircuits(setupList) {
 function isInstalled() {
   const loader = path.join(dest, "circuitjs1.nocache.js");
   if (!fs.existsSync(loader)) return false;
-  return permutationFiles(fs.readFileSync(loader, "utf-8")).every((f) => fs.existsSync(path.join(dest, f)));
+  const nocache = fs.readFileSync(loader, "utf-8");
+  return [...permutationFiles(nocache), ...stylesheets(nocache)].every((f) => fs.existsSync(path.join(dest, f)));
 }
 
 async function main() {
@@ -71,18 +84,28 @@ async function main() {
 
   const nocache = await download("circuitjs1.nocache.js", { text: true });
   const setupList = await download("setuplist.txt", { text: true });
-  const required = [...permutationFiles(nocache), "clear.cache.gif"];
-  if (required.length < 2) throw new Error("No GWT permutations found in circuitjs1.nocache.js");
+  const permutations = permutationFiles(nocache);
+  if (permutations.length === 0) throw new Error("No GWT permutations found in circuitjs1.nocache.js");
 
-  const requiredFailures = await downloadAll(required);
-  if (requiredFailures.length) throw new Error(`Missing core files:\n  ${requiredFailures.join("\n  ")}`);
+  const core = [...permutations, "clear.cache.gif"];
+  const failures = await downloadAll(core);
+  const cssAssets = new Set();
+  for (const css of stylesheets(nocache)) {
+    core.push(css);
+    await download(css, { text: true })
+      .then((body) => stylesheetAssets(css, body).forEach((a) => cssAssets.add(a)))
+      .catch((e) => failures.push(e.message));
+  }
+  core.push(...cssAssets);
+  failures.push(...(await downloadAll([...cssAssets])));
+  if (failures.length) throw new Error(`Missing core files:\n  ${failures.join("\n  ")}`);
 
   const circuits = exampleCircuits(setupList);
   const exampleFailures = await downloadAll(circuits);
   if (exampleFailures.length) {
     console.warn(`Warning: ${exampleFailures.length} example circuits could not be downloaded`);
   }
-  console.log(`CircuitJS installed: ${required.length} core files, ${circuits.length - exampleFailures.length} example circuits`);
+  console.log(`CircuitJS installed: ${core.length} core files, ${circuits.length - exampleFailures.length} example circuits`);
 }
 
 main().catch((error) => {
