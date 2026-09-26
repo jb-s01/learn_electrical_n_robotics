@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local database
 /data/
+
+# CircuitJS build, downloaded by scripts/fetch-circuitjs.mjs
+/public/circuitjs/circuitjs1/

@@ -1,4 +1,5 @@
 import { eq, and } from "drizzle-orm";
+import { connection } from "next/server";
 import { getDb, getOrCreateUser } from "@/lib/db/client";
 import {
   lessonProgress,
@@ -16,6 +17,9 @@ import {
 import type { TrackId } from "@/lib/curriculum/types";
 
 export async function getProgressData() {
+  // better-sqlite3 is synchronous, so without this the dashboard is prerendered
+  // at build time and shows stale progress in production.
+  await connection();
   const user = await getOrCreateUser();
   const db = getDb();
 
@@ -87,10 +91,20 @@ async function upsertProgress(
     .limit(1);
 
   if (existing.length > 0) {
+    const current = existing[0];
+    const merged = { ...updates };
+    // Revisiting or retaking a finished lesson must never un-complete it
+    // (that would re-lock every lesson that depends on it).
+    if (current.status === "completed" && merged.status !== "completed") {
+      delete merged.status;
+    }
+    if (merged.quizScore !== undefined && current.quizScore !== null) {
+      merged.quizScore = Math.max(merged.quizScore, current.quizScore);
+    }
     await db
       .update(lessonProgress)
-      .set(updates)
-      .where(eq(lessonProgress.id, existing[0].id));
+      .set(merged)
+      .where(eq(lessonProgress.id, current.id));
   } else {
     await db.insert(lessonProgress).values({
       userId,

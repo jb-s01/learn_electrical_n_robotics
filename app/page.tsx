@@ -5,7 +5,6 @@ import { ProgressRing } from "@/components/progress/ProgressRing";
 import { ModuleCard } from "@/components/progress/ModuleCard";
 import { OllamaStatus } from "@/components/chat/OllamaStatus";
 import {
-  curriculum,
   getFirstAvailableLesson,
   getLevelProgress,
   getOverallProgress,

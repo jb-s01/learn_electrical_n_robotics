@@ -3,7 +3,6 @@ import { getOrCreateUser, getUserSettings } from "@/lib/db/client";
 import {
   listOllamaModels,
   pickAvailableModel,
-  getOllamaBaseUrl,
 } from "@/lib/ai/ollama";
 
 export const runtime = "nodejs";

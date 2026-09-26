@@ -56,26 +56,34 @@ export function CircuitSimulator({
   useEffect(() => {
     const iframe = iframeRef.current;
     if (!iframe) return;
+    let ready = false;
 
-    const handleLoad = () => {
-      const win = iframe.contentWindow;
-      if (!win) return;
-
-      win.oncircuitjsloaded = () => {
-        setLoaded(true);
-        if (circuitFile) {
-          fetch(`/api/circuits/${circuitFile}`)
-            .then((r) => r.text())
-            .then((circuit) => {
-              win.CircuitJS1?.importCircuit(circuit);
-            })
-            .catch(() => setError("Could not load circuit"));
-        }
-      };
+    const onSimulatorReady = (win: Window) => {
+      if (ready) return;
+      ready = true;
+      setLoaded(true);
+      if (circuitFile) {
+        fetch(`/api/circuits/${circuitFile}`)
+          .then((r) => r.text())
+          .then((circuit) => {
+            win.CircuitJS1?.importCircuit(circuit);
+          })
+          .catch(() => setError("Could not load circuit"));
+      }
     };
 
-    iframe.addEventListener("load", handleLoad);
-    return () => iframe.removeEventListener("load", handleLoad);
+    // The iframe is server-rendered, so it may finish loading (and CircuitJS may
+    // finish booting) before this effect runs. Hook in at whatever stage it is at.
+    const attach = () => {
+      const win = iframe.contentWindow;
+      if (!win || win.location.href === "about:blank") return;
+      if (win.CircuitJS1) onSimulatorReady(win);
+      else win.oncircuitjsloaded = () => onSimulatorReady(win);
+    };
+
+    attach();
+    iframe.addEventListener("load", attach);
+    return () => iframe.removeEventListener("load", attach);
   }, [circuitFile]);
 
   const handleVerifyLab = () => {
@@ -134,7 +142,7 @@ export function CircuitSimulator({
       <div className="overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
         <iframe
           ref={iframeRef}
-          src="/circuitjs/circuitjs.html"
+          src="/circuitjs/circuitjs.html?startCircuit=blank.txt"
           title="Circuit Simulator"
           className="h-[420px] w-full bg-white"
           sandbox="allow-scripts allow-same-origin"
