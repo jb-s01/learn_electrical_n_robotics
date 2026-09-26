@@ -52,6 +52,17 @@ Measured in **amperes (A)** or milliamps (mA). The rate of charge flow — how m
 <Callout type="info">
 High voltage with low current can be safe (static shock). Low voltage with high current can be dangerous. Both matter!
 </Callout>
+
+## Check Your Recall
+
+<Flashcards
+  cards={[
+    { front: "What is voltage in the water analogy?", back: "Pressure — the push that drives charge around the circuit." },
+    { front: "What is current?", back: "The rate of charge flow: how much charge passes a point each second." },
+    { front: "Unit of current?", back: "Amperes (A). 1 mA = 0.001 A." },
+    { front: "Unit of voltage?", back: "Volts (V)." },
+  ]}
+/>
 `,
 
   "b2-resistors": () => `## Overview
@@ -119,14 +130,41 @@ If you know any two values, you can find the third:
 - I = V / R
 - R = V / I
 
+## See It Move
+
+Drag the sliders and watch the charge flow. The dots speed up when current rises and slow down when resistance increases.
+
+<CurrentFlow initialVoltage={9} initialResistance={450} />
+
 ## Example
 
 A 9V battery connected to a 900Ω resistor:
 - Current I = 9V / 900Ω = **0.01 A = 10 mA**
 
+<StepThrough
+  problem="A 12 V supply drives a 600 Ω resistor. What current flows, and how much power does the resistor dissipate?"
+  steps={[
+    "Write down what you know: V = 12 V, R = 600 Ω. You want I and P.",
+    "Rearrange Ohm's law for current: I = V / R.",
+    "Substitute: I = 12 V / 600 Ω = 0.02 A.",
+    "Convert to milliamps: 0.02 A × 1000 = 20 mA.",
+    "Power: P = V × I = 12 V × 0.02 A = 0.24 W — a standard ¼ W (0.25 W) resistor is cutting it close, so pick ½ W.",
+  ]}
+  answer="I = 20 mA, P = 0.24 W"
+/>
+
 <Callout type="warning">
 Always calculate expected current before powering a circuit. Excessive current destroys components!
 </Callout>
+
+<Flashcards
+  cards={[
+    { front: "Ohm's law (solve for V)", back: "V = I × R" },
+    { front: "Ohm's law (solve for I)", back: "I = V / R" },
+    { front: "Resistance doubles, voltage stays the same. What happens to current?", back: "It halves." },
+    { front: "9 V across 900 Ω gives what current?", back: "10 mA (0.01 A)" },
+  ]}
+/>
 
 <CircuitSimulator
   circuitFile="ohms-law.txt"
@@ -137,6 +175,136 @@ Always calculate expected current before powering a circuit. Excessive current d
     "Verify that doubling resistance halves the current"
   ]}
 />
+`,
+
+  "b3-series-parallel": (lesson) => `## Overview
+
+Real circuits rarely contain a single resistor. Knowing how resistors **combine** lets you replace a whole network with one equivalent resistance and then use Ohm's law.
+
+## Series
+
+Resistors in series sit end to end on a single path. The **same current** flows through each one, and the supply voltage is **shared** between them.
+
+**R_eq = R1 + R2 + …**
+
+## Parallel
+
+Resistors in parallel each connect across the same two nodes. Every resistor sees the **same voltage**, and the total current is **shared** between the branches.
+
+**1 / R_eq = 1 / R1 + 1 / R2 + …** — for two resistors: **R_eq = (R1 × R2) / (R1 + R2)**
+
+<SeriesParallelExplorer initialR1={330} initialR2={660} />
+
+<Callout type="tip">
+Quick sanity check: series always makes the total **bigger** than the largest resistor; parallel always makes it **smaller** than the smallest.
+</Callout>
+
+<StepThrough
+  problem="A 1 kΩ resistor is in parallel with a 1 kΩ resistor, and that pair is in series with a 500 Ω resistor. What is the total resistance?"
+  steps={[
+    "Simplify the innermost group first — the parallel pair.",
+    "Two equal resistors in parallel give half of one: 1 kΩ ∥ 1 kΩ = 500 Ω.",
+    "The network is now 500 Ω in series with 500 Ω.",
+    "Series resistances add: 500 Ω + 500 Ω = 1000 Ω.",
+  ]}
+  answer="R_total = 1 kΩ"
+/>
+
+## Key Takeaways
+
+${lesson.learningObjectives.map((o, i) => `${i + 1}. ${o}`).join("\n")}
+`,
+
+  "b5-rc-timing": (lesson) => `## Overview
+
+When a capacitor charges through a resistor, its voltage doesn't jump instantly. It rises quickly at first and then slows down, following an exponential curve set by the **time constant τ (tau)**.
+
+## The Time Constant
+
+**τ = R × C** — with R in ohms and C in farads, τ comes out in seconds.
+
+- After **1τ** the capacitor reaches about **63%** of the supply voltage
+- After **5τ** it is considered fully charged (**over 99%**)
+
+Charging: **Vc = Vs × (1 − e^(−t/τ))** · Discharging: **Vc = Vs × e^(−t/τ)**
+
+<RCChargeCurve initialResistanceK={10} initialCapacitanceU={100} />
+
+<Callout type="info">
+10 kΩ × 100 µF = 10,000 × 0.0001 = **1 second**. This combination is handy to remember when designing simple delays.
+</Callout>
+
+<Flashcards
+  cards={[
+    { front: "Formula for the RC time constant", back: "τ = R × C" },
+    { front: "Charge level after 1τ", back: "About 63% of the supply voltage" },
+    { front: "How long until fully charged?", back: "About 5τ (over 99%)" },
+    { front: "Doubling C does what to τ?", back: "Doubles it — the curve rises twice as slowly." },
+  ]}
+/>
+
+## Key Takeaways
+
+${lesson.learningObjectives.map((o, i) => `${i + 1}. ${o}`).join("\n")}
+`,
+
+  "i3-logic-gates": (lesson) => `## Overview
+
+Logic gates are the building blocks of every digital system. Each gate takes one or more **binary inputs** (0 = LOW, 1 = HIGH) and produces an output according to a simple rule.
+
+## The Basic Gates
+
+- **AND** — output is 1 only if **all** inputs are 1
+- **OR** — output is 1 if **any** input is 1
+- **NOT** — inverts the input
+- **NAND / NOR** — AND / OR followed by NOT (the bubble on the symbol means "invert")
+- **XOR** — output is 1 when the inputs are **different**
+
+<LogicGateExplorer initialGate="AND" />
+
+<Callout type="tip">
+NAND is called a **universal gate**: you can build every other gate using only NAND gates.
+</Callout>
+
+<Flashcards
+  cards={[
+    { front: "AND gate with inputs 1 and 0", back: "0 — AND needs every input HIGH" },
+    { front: "What does the bubble on a gate symbol mean?", back: "Inversion (NOT) of that signal" },
+    { front: "XOR truth rule", back: "Output is 1 when the inputs differ" },
+    { front: "Which gate is 'universal'?", back: "NAND (and NOR) — any logic can be built from it" },
+  ]}
+/>
+
+## Key Takeaways
+
+${lesson.learningObjectives.map((o, i) => `${i + 1}. ${o}`).join("\n")}
+`,
+
+  "i5-pwm": (lesson) => `## Overview
+
+A microcontroller pin can only be fully **ON** or fully **OFF**. **Pulse-Width Modulation (PWM)** switches it rapidly so the load sees an **average** voltage somewhere in between.
+
+## Duty Cycle & Frequency
+
+- **Duty cycle** — the percentage of each period the signal is HIGH
+- **Frequency** — how many periods per second
+- **Average voltage** — V_avg = duty × V_high
+
+<PWMVisualizer initialDuty={50} />
+
+## Where PWM Is Used
+
+- Dimming LEDs (your eye averages the fast flicker)
+- Controlling DC motor speed through an H-bridge
+- Positioning hobby servos (pulse width encodes the angle)
+
+<Callout type="warning">
+The frequency must be fast enough for the load: LEDs need a few hundred Hz to avoid visible flicker, while servos expect a 50 Hz signal.
+</Callout>
+
+## Key Takeaways
+
+${lesson.learningObjectives.map((o, i) => `${i + 1}. ${o}`).join("\n")}
 `,
 
   "b3-voltage-divider": () => `## Overview

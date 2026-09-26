@@ -20,14 +20,41 @@ If you know any two values, you can find the third:
 - I = V / R
 - R = V / I
 
+## See It Move
+
+Drag the sliders and watch the charge flow. The dots speed up when current rises and slow down when resistance increases.
+
+<CurrentFlow initialVoltage={9} initialResistance={450} />
+
 ## Example
 
 A 9V battery connected to a 900Ω resistor:
 - Current I = 9V / 900Ω = **0.01 A = 10 mA**
 
+<StepThrough
+  problem="A 12 V supply drives a 600 Ω resistor. What current flows, and how much power does the resistor dissipate?"
+  steps={[
+    "Write down what you know: V = 12 V, R = 600 Ω. You want I and P.",
+    "Rearrange Ohm's law for current: I = V / R.",
+    "Substitute: I = 12 V / 600 Ω = 0.02 A.",
+    "Convert to milliamps: 0.02 A × 1000 = 20 mA.",
+    "Power: P = V × I = 12 V × 0.02 A = 0.24 W — a standard ¼ W (0.25 W) resistor is cutting it close, so pick ½ W.",
+  ]}
+  answer="I = 20 mA, P = 0.24 W"
+/>
+
 <Callout type="warning">
 Always calculate expected current before powering a circuit. Excessive current destroys components!
 </Callout>
+
+<Flashcards
+  cards={[
+    { front: "Ohm's law (solve for V)", back: "V = I × R" },
+    { front: "Ohm's law (solve for I)", back: "I = V / R" },
+    { front: "Resistance doubles, voltage stays the same. What happens to current?", back: "It halves." },
+    { front: "9 V across 900 Ω gives what current?", back: "10 mA (0.01 A)" },
+  ]}
+/>
 
 <CircuitSimulator
   circuitFile="ohms-law.txt"

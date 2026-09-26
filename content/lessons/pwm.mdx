@@ -6,20 +6,24 @@ description: "Pulse-width modulation for motors and LEDs"
 
 ## Overview
 
-Pulse-width modulation for motors and LEDs
+A microcontroller pin can only be fully **ON** or fully **OFF**. **Pulse-Width Modulation (PWM)** switches it rapidly so the load sees an **average** voltage somewhere in between.
 
-## What You'll Learn
+## Duty Cycle & Frequency
 
-- Explain duty cycle and frequency
-- Control LED brightness with PWM
-- Drive servo motors with PWM signals
+- **Duty cycle** — the percentage of each period the signal is HIGH
+- **Frequency** — how many periods per second
+- **Average voltage** — V_avg = duty × V_high
 
-## Core Concepts
+<PWMVisualizer initialDuty={50} />
 
-Understanding **PWM Control** is essential for building a solid foundation in electronics. Think of each new concept as a tool in your engineer's toolbox — you will use these ideas again and again as circuits get more complex.
+## Where PWM Is Used
 
-<Callout type="tip">
-Take your time with this lesson. Use the AI Tutor on the right to ask "why" questions — understanding the reasoning behind each concept matters more than memorizing formulas.
+- Dimming LEDs (your eye averages the fast flicker)
+- Controlling DC motor speed through an H-bridge
+- Positioning hobby servos (pulse width encodes the angle)
+
+<Callout type="warning">
+The frequency must be fast enough for the load: LEDs need a few hundred Hz to avoid visible flicker, while servos expect a 50 Hz signal.
 </Callout>
 
 ## Key Takeaways
@@ -27,7 +31,3 @@ Take your time with this lesson. Use the AI Tutor on the right to ask "why" ques
 1. Explain duty cycle and frequency
 2. Control LED brightness with PWM
 3. Drive servo motors with PWM signals
-
-## Practice
-
-Apply what you learned by reviewing the concepts above, then complete the quiz below to check your understanding.

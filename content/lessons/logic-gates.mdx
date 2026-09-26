@@ -6,28 +6,33 @@ description: "AND, OR, NOT, NAND, and truth tables"
 
 ## Overview
 
-AND, OR, NOT, NAND, and truth tables
+Logic gates are the building blocks of every digital system. Each gate takes one or more **binary inputs** (0 = LOW, 1 = HIGH) and produces an output according to a simple rule.
 
-## What You'll Learn
+## The Basic Gates
 
-- Build truth tables for basic gates
-- Combine gates for simple logic
-- Read logic gate symbols
+- **AND** — output is 1 only if **all** inputs are 1
+- **OR** — output is 1 if **any** input is 1
+- **NOT** — inverts the input
+- **NAND / NOR** — AND / OR followed by NOT (the bubble on the symbol means "invert")
+- **XOR** — output is 1 when the inputs are **different**
 
-## Core Concepts
-
-Understanding **Logic Gates** is essential for building a solid foundation in electronics. Think of each new concept as a tool in your engineer's toolbox — you will use these ideas again and again as circuits get more complex.
+<LogicGateExplorer initialGate="AND" />
 
 <Callout type="tip">
-Take your time with this lesson. Use the AI Tutor on the right to ask "why" questions — understanding the reasoning behind each concept matters more than memorizing formulas.
+NAND is called a **universal gate**: you can build every other gate using only NAND gates.
 </Callout>
+
+<Flashcards
+  cards={[
+    { front: "AND gate with inputs 1 and 0", back: "0 — AND needs every input HIGH" },
+    { front: "What does the bubble on a gate symbol mean?", back: "Inversion (NOT) of that signal" },
+    { front: "XOR truth rule", back: "Output is 1 when the inputs differ" },
+    { front: "Which gate is 'universal'?", back: "NAND (and NOR) — any logic can be built from it" },
+  ]}
+/>
 
 ## Key Takeaways
 
 1. Build truth tables for basic gates
 2. Combine gates for simple logic
 3. Read logic gate symbols
-
-## Practice
-
-Apply what you learned by reviewing the concepts above, then complete the quiz below to check your understanding.
