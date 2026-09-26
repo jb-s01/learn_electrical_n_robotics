@@ -159,7 +159,7 @@ export default function SettingsPage() {
           </CardContent>
           {exportData && (
             <CardContent>
-              <pre className="max-h-48 overflow-auto rounded-lg bg-zinc-100 p-3 text-xs dark:bg-zinc-900">
+              <pre data-lenis-prevent className="max-h-48 overflow-auto rounded-lg bg-zinc-100 p-3 text-xs dark:bg-zinc-900">
                 {exportData}
               </pre>
             </CardContent>

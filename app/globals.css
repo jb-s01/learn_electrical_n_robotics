@@ -24,3 +24,62 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+.range-slider {
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    #2563eb 0%,
+    #22d3ee var(--range-pct, 50%),
+    rgb(228 228 231) var(--range-pct, 50%)
+  );
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  .range-slider {
+    background: linear-gradient(
+      to right,
+      #2563eb 0%,
+      #22d3ee var(--range-pct, 50%),
+      rgb(39 39 42) var(--range-pct, 50%)
+    );
+  }
+}
+
+.range-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: white;
+  border: 2px solid #2563eb;
+  box-shadow: 0 1px 4px rgb(37 99 235 / 0.35);
+  transition: transform 150ms ease;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.range-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: white;
+  border: 2px solid #2563eb;
+}
+
+.range-slider:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(113 113 122 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(113 113 122 / 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

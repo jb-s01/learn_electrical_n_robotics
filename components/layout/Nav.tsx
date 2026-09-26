@@ -1,39 +1,27 @@
 import Link from "next/link";
-import { Zap, BookOpen, Bot, Settings, Layers } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Zap } from "lucide-react";
+import { NavLinks, type NavLink } from "@/components/layout/NavLinks";
 
-const links = [
-  { href: "/", label: "Dashboard", icon: Zap },
-  { href: "/path/beginner", label: "Beginner", icon: BookOpen },
-  { href: "/path/intermediate", label: "Intermediate", icon: BookOpen },
-  { href: "/path/advanced", label: "Advanced", icon: BookOpen },
-  { href: "/tracks", label: "Tracks", icon: Layers },
-  { href: "/tutor", label: "AI Tutor", icon: Bot },
-  { href: "/settings", label: "Settings", icon: Settings },
+const links: NavLink[] = [
+  { href: "/path/beginner", label: "Beginner" },
+  { href: "/path/intermediate", label: "Intermediate" },
+  { href: "/path/advanced", label: "Advanced" },
+  { href: "/tracks", label: "Tracks" },
+  { href: "/tutor", label: "AI Tutor" },
+  { href: "/settings", label: "Settings" },
 ];
 
-export function Nav({ currentPath }: { currentPath?: string }) {
+export function Nav() {
   return (
-    <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+    <header className="sticky top-0 z-40 border-b border-zinc-200/80 bg-white/80 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link href="/" className="flex items-center gap-2 font-semibold">
-          <Zap className="h-5 w-5 text-blue-600" />
+        <Link href="/" className="group flex items-center gap-2 font-semibold">
+          <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 text-white shadow-sm shadow-blue-500/30 transition-transform group-hover:rotate-12">
+            <Zap className="h-4 w-4" />
+          </span>
           <span>ElectroLearn</span>
         </Link>
-        <nav className="hidden items-center gap-1 md:flex">
-          {links.slice(1).map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={cn(
-                "rounded-lg px-3 py-1.5 text-sm transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800",
-                currentPath === href && "bg-zinc-100 font-medium dark:bg-zinc-800"
-              )}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks links={links} />
       </div>
     </header>
   );
