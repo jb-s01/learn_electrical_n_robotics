@@ -81,6 +81,7 @@ export async function PUT() {
     const data = await exportProgress(user.id);
     return NextResponse.json(data);
   } catch (error) {
+    console.error("Progress export error:", error);
     return NextResponse.json(
       { error: "Failed to export progress" },
       { status: 500 }

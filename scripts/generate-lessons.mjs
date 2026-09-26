@@ -518,8 +518,6 @@ description: "${lesson.description}"
 
 `;
 
-  const quizBlock = "";
-
   const mdx = frontmatter + body + specialSim;
   const filePath = path.join(lessonsDir, `${lesson.slug}.mdx`);
   fs.writeFileSync(filePath, mdx);

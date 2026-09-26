@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getModulesByLevel,
@@ -69,9 +70,9 @@ export default async function PathPage({
           <h2 className="mb-4 text-xl font-semibold">Optional Track Lessons</h2>
           <p className="mb-4 text-sm text-zinc-500">
             Enroll in tracks from the{" "}
-            <a href="/tracks" className="text-blue-600 hover:underline">
+            <Link href="/tracks" className="text-blue-600 hover:underline">
               Tracks page
-            </a>{" "}
+            </Link>{" "}
             to unlock these lessons.
           </p>
           {(["robotics", "embedded-ai"] as const).map((trackId) => {

@@ -8,11 +8,6 @@ import { curriculum, getTrackLessons } from "@/lib/curriculum";
 import { Bot, Cpu } from "lucide-react";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 
-type TrackEnrollment = {
-  trackId: string;
-  enrolled: boolean;
-};
-
 export default function TracksPage() {
   const [enrolledTracks, setEnrolledTracks] = useState<string[]>([]);
   const [loading, setLoading] = useState<string | null>(null);
