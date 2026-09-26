@@ -6,28 +6,39 @@ description: "Combining resistors in series and parallel"
 
 ## Overview
 
-Combining resistors in series and parallel
+Real circuits rarely contain a single resistor. Knowing how resistors **combine** lets you replace a whole network with one equivalent resistance and then use Ohm's law.
 
-## What You'll Learn
+## Series
 
-- Calculate series resistance (R1+R2)
-- Calculate parallel resistance
-- Analyze simple resistor networks
+Resistors in series sit end to end on a single path. The **same current** flows through each one, and the supply voltage is **shared** between them.
 
-## Core Concepts
+**R_eq = R1 + R2 + …**
 
-Understanding **Series & Parallel** is essential for building a solid foundation in electronics. Think of each new concept as a tool in your engineer's toolbox — you will use these ideas again and again as circuits get more complex.
+## Parallel
+
+Resistors in parallel each connect across the same two nodes. Every resistor sees the **same voltage**, and the total current is **shared** between the branches.
+
+**1 / R_eq = 1 / R1 + 1 / R2 + …** — for two resistors: **R_eq = (R1 × R2) / (R1 + R2)**
+
+<SeriesParallelExplorer initialR1={330} initialR2={660} />
 
 <Callout type="tip">
-Take your time with this lesson. Use the AI Tutor on the right to ask "why" questions — understanding the reasoning behind each concept matters more than memorizing formulas.
+Quick sanity check: series always makes the total **bigger** than the largest resistor; parallel always makes it **smaller** than the smallest.
 </Callout>
+
+<StepThrough
+  problem="A 1 kΩ resistor is in parallel with a 1 kΩ resistor, and that pair is in series with a 500 Ω resistor. What is the total resistance?"
+  steps={[
+    "Simplify the innermost group first — the parallel pair.",
+    "Two equal resistors in parallel give half of one: 1 kΩ ∥ 1 kΩ = 500 Ω.",
+    "The network is now 500 Ω in series with 500 Ω.",
+    "Series resistances add: 500 Ω + 500 Ω = 1000 Ω.",
+  ]}
+  answer="R_total = 1 kΩ"
+/>
 
 ## Key Takeaways
 
 1. Calculate series resistance (R1+R2)
 2. Calculate parallel resistance
 3. Analyze simple resistor networks
-
-## Practice
-
-Apply what you learned by reviewing the concepts above, then complete the quiz below to check your understanding.

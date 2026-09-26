@@ -6,28 +6,34 @@ description: "Capacitor charge and discharge timing"
 
 ## Overview
 
-Capacitor charge and discharge timing
+When a capacitor charges through a resistor, its voltage doesn't jump instantly. It rises quickly at first and then slows down, following an exponential curve set by the **time constant τ (tau)**.
 
-## What You'll Learn
+## The Time Constant
 
-- Explain RC time constant τ = RC
-- Predict charge/discharge curves
-- Use RC circuits for simple delays
+**τ = R × C** — with R in ohms and C in farads, τ comes out in seconds.
 
-## Core Concepts
+- After **1τ** the capacitor reaches about **63%** of the supply voltage
+- After **5τ** it is considered fully charged (**over 99%**)
 
-Understanding **RC Timing Circuits** is essential for building a solid foundation in electronics. Think of each new concept as a tool in your engineer's toolbox — you will use these ideas again and again as circuits get more complex.
+Charging: **Vc = Vs × (1 − e^(−t/τ))** · Discharging: **Vc = Vs × e^(−t/τ)**
 
-<Callout type="tip">
-Take your time with this lesson. Use the AI Tutor on the right to ask "why" questions — understanding the reasoning behind each concept matters more than memorizing formulas.
+<RCChargeCurve initialResistanceK={10} initialCapacitanceU={100} />
+
+<Callout type="info">
+10 kΩ × 100 µF = 10,000 × 0.0001 = **1 second**. This combination is handy to remember when designing simple delays.
 </Callout>
+
+<Flashcards
+  cards={[
+    { front: "Formula for the RC time constant", back: "τ = R × C" },
+    { front: "Charge level after 1τ", back: "About 63% of the supply voltage" },
+    { front: "How long until fully charged?", back: "About 5τ (over 99%)" },
+    { front: "Doubling C does what to τ?", back: "Doubles it — the curve rises twice as slowly." },
+  ]}
+/>
 
 ## Key Takeaways
 
 1. Explain RC time constant τ = RC
 2. Predict charge/discharge curves
 3. Use RC circuits for simple delays
-
-## Practice
-
-Apply what you learned by reviewing the concepts above, then complete the quiz below to check your understanding.

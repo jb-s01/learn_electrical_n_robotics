@@ -12,6 +12,7 @@ import { LessonNavigation } from "@/components/lesson/LessonNavigation";
 import { TutorChat } from "@/components/chat/TutorChat";
 import { LessonReader } from "@/components/lesson/LessonReader";
 import { Badge } from "@/components/ui/badge";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
@@ -58,6 +59,7 @@ export default async function LessonPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
+      <ScrollProgress />
       <LessonReader lessonId={lesson.id} />
 
       <Link
@@ -85,6 +87,7 @@ export default async function LessonPage({
           <p className="mb-6 text-zinc-600 dark:text-zinc-400">{lesson.description}</p>
           <MDXRemote
             source={content.content}
+            options={{ blockJS: false }}
             components={{
               ...mdxComponents,
               CircuitSimulator: (props) => (
@@ -107,7 +110,7 @@ export default async function LessonPage({
           />
         </article>
 
-        <aside className="lg:sticky lg:top-4 lg:self-start">
+        <aside className="lg:sticky lg:top-20 lg:self-start">
           <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
             <TutorChat
               compact

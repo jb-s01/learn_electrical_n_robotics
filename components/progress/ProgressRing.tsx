@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "motion/react";
+import { AnimatedNumber } from "@/components/motion/AnimatedNumber";
+
 export function ProgressRing({
   completed,
   total,
@@ -17,6 +22,12 @@ export function ProgressRing({
   return (
     <div className="flex flex-col items-center gap-2">
       <svg width={size} height={size} className="-rotate-90">
+        <defs>
+          <linearGradient id="progress-ring-gradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#2563eb" />
+            <stop offset="100%" stopColor="#22d3ee" />
+          </linearGradient>
+        </defs>
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -26,21 +37,25 @@ export function ProgressRing({
           strokeWidth={6}
           className="text-zinc-200 dark:text-zinc-800"
         />
-        <circle
+        <motion.circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="currentColor"
+          stroke="url(#progress-ring-gradient)"
           strokeWidth={6}
           strokeDasharray={circumference}
-          strokeDashoffset={offset}
           strokeLinecap="round"
-          className="text-blue-600 transition-all duration-500"
+          initial={{ strokeDashoffset: circumference }}
+          whileInView={{ strokeDashoffset: offset }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
         />
       </svg>
       <div className="text-center">
-        <p className="text-lg font-bold">{pct}%</p>
+        <p className="text-lg font-bold">
+          <AnimatedNumber value={pct} suffix="%" duration={1.2} />
+        </p>
         <p className="text-xs text-zinc-500">
           {completed}/{total} {label ?? "lessons"}
         </p>

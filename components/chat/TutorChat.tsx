@@ -133,6 +133,7 @@ export function TutorChat({ context, compact = false }: TutorChatProps) {
 
       <div
         ref={scrollRef}
+        data-lenis-prevent
         className="mt-3 flex-1 space-y-3 overflow-y-auto rounded-lg border border-zinc-200 p-4 dark:border-zinc-800"
       >
         {messages.length === 0 && (
