@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,37 +23,43 @@ export function LessonNavigation({
   next,
   initialNextAccessible,
 }: LessonNavigationProps) {
-  const [nextAccessible, setNextAccessible] = useState(initialNextAccessible);
+  const [fetchedAccess, setFetchedAccess] = useState<{
+    nextId: string;
+    accessible: boolean;
+  } | null>(null);
+  const nextAccessible =
+    next && fetchedAccess?.nextId === next.id
+      ? fetchedAccess.accessible
+      : initialNextAccessible;
 
-  const refreshAccess = useCallback(async () => {
+  useEffect(() => {
     if (!next) return;
+    let cancelled = false;
 
-    try {
-      const res = await fetch("/api/progress");
-      if (!res.ok) return;
-      const data = await res.json();
-      const progress = data.progress as ProgressMap;
-      const enrolledTracks = data.enrolledTracks ?? [];
-      setNextAccessible(
-        canNavigateToNext(lesson, next, progress, enrolledTracks)
-      );
-    } catch {
-      // keep current state
-    }
-  }, [lesson, next]);
+    const refreshAccess = () => {
+      fetch("/api/progress")
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (!data || cancelled) return;
+          const progress = data.progress as ProgressMap;
+          const enrolledTracks = data.enrolledTracks ?? [];
+          setFetchedAccess({
+            nextId: next.id,
+            accessible: canNavigateToNext(lesson, next, progress, enrolledTracks),
+          });
+        })
+        .catch(() => {
+          // keep current state
+        });
+    };
 
-  useEffect(() => {
-    setNextAccessible(initialNextAccessible);
-  }, [initialNextAccessible]);
-
-  useEffect(() => {
     refreshAccess();
-
-    const onProgressUpdated = () => refreshAccess();
-    window.addEventListener("lesson-progress-updated", onProgressUpdated);
-    return () =>
-      window.removeEventListener("lesson-progress-updated", onProgressUpdated);
-  }, [refreshAccess]);
+    window.addEventListener("lesson-progress-updated", refreshAccess);
+    return () => {
+      cancelled = true;
+      window.removeEventListener("lesson-progress-updated", refreshAccess);
+    };
+  }, [lesson, next]);
 
   const courseHref =
     lesson.tracks.length > 0
