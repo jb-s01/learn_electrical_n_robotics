@@ -12,7 +12,7 @@ A browser-based electronics and electrical engineering learning platform. Learn 
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) 18+
+- [Node.js](https://nodejs.org/) 22 (LTS)
 - [Ollama](https://ollama.com/) (for AI tutor)
 
 ## Quick Start
