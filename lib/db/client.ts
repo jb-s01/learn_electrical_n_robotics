@@ -3,12 +3,22 @@ import { drizzle } from "drizzle-orm/better-sqlite3";
 import { eq } from "drizzle-orm";
 import fs from "fs";
 import path from "path";
+import { applySchema } from "./schema-sql.mjs";
 import * as schema from "./schema";
+
+export type AppDatabase = ReturnType<typeof drizzle<typeof schema>>;
 
 const globalForDb = globalThis as unknown as {
   sqlite?: Database.Database;
-  db?: ReturnType<typeof drizzle<typeof schema>>;
+  db?: AppDatabase;
 };
+
+let dbOverride: AppDatabase | undefined;
+
+/** Use a caller-supplied database (for example an in-memory SQLite connection). */
+export function setDb(db: AppDatabase | undefined) {
+  dbOverride = db;
+}
 
 function getDbPath() {
   const url = process.env.DATABASE_URL ?? "file:./data/progress.db";
@@ -25,51 +35,14 @@ function createDb() {
   const sqlite = new Database(dbPath);
   sqlite.pragma("journal_mode = WAL");
   sqlite.pragma("foreign_keys = ON");
-
-  sqlite.exec(`
-    CREATE TABLE IF NOT EXISTS user_profile (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      created_at INTEGER NOT NULL DEFAULT (unixepoch())
-    );
-    CREATE TABLE IF NOT EXISTS lesson_progress (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER NOT NULL REFERENCES user_profile(id),
-      lesson_id TEXT NOT NULL,
-      status TEXT NOT NULL DEFAULT 'locked',
-      quiz_score INTEGER,
-      lab_complete INTEGER DEFAULT 0,
-      read_sections INTEGER DEFAULT 0,
-      completed_at INTEGER,
-      UNIQUE(user_id, lesson_id)
-    );
-    CREATE TABLE IF NOT EXISTS quiz_attempts (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER NOT NULL REFERENCES user_profile(id),
-      lesson_id TEXT NOT NULL,
-      score INTEGER NOT NULL,
-      total_questions INTEGER NOT NULL,
-      attempted_at INTEGER NOT NULL DEFAULT (unixepoch())
-    );
-    CREATE TABLE IF NOT EXISTS track_enrollment (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER NOT NULL REFERENCES user_profile(id),
-      track_id TEXT NOT NULL,
-      enrolled INTEGER NOT NULL DEFAULT 0,
-      enrolled_at INTEGER,
-      UNIQUE(user_id, track_id)
-    );
-    CREATE TABLE IF NOT EXISTS user_settings (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER NOT NULL UNIQUE REFERENCES user_profile(id),
-      ollama_model TEXT DEFAULT 'llama3.2:3b'
-    );
-  `);
+  applySchema(sqlite);
 
   const db = drizzle(sqlite, { schema });
   return { sqlite, db };
 }
 
 export function getDb() {
+  if (dbOverride) return dbOverride;
   if (!globalForDb.db) {
     const { sqlite, db } = createDb();
     globalForDb.sqlite = sqlite;
