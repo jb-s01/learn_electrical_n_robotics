@@ -5,7 +5,7 @@ import { getLessonContent } from "@/lib/content/lessons";
 import { getProgressData } from "@/lib/progress/service";
 import { getLessonStatus, getAdjacentLessons, canNavigateToNext } from "@/lib/curriculum";
 import { mdxComponents } from "@/lib/mdx/mdx-components";
-import { getQuizForLesson } from "@/lib/curriculum/quizzes";
+import { getPublicQuizForLesson } from "@/lib/curriculum/quizzes";
 import { CircuitSimulator } from "@/components/simulator/CircuitSimulator";
 import { QuizBlock } from "@/components/lesson/QuizBlock";
 import { LessonNavigation } from "@/components/lesson/LessonNavigation";
@@ -51,7 +51,7 @@ export default async function LessonPage({
       ? "embedded-ai"
       : null;
 
-  const quizQuestions = getQuizForLesson(lesson.id);
+  const quizQuestions = getPublicQuizForLesson(lesson.id);
   const { previous, next } = getAdjacentLessons(lesson);
   const initialNextAccessible = next
     ? canNavigateToNext(lesson, next, progress, enrolledTracks)
