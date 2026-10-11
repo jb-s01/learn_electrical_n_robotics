@@ -86,6 +86,8 @@ export function CircuitSimulator({
     return () => iframe.removeEventListener("load", attach);
   }, [circuitFile]);
 
+  const simulatorState = loaded ? "ready" : "loading";
+
   const handleVerifyLab = () => {
     const sim = iframeRef.current?.contentWindow?.CircuitJS1;
     if (!sim) return;
@@ -109,7 +111,11 @@ export function CircuitSimulator({
   };
 
   return (
-    <div className="space-y-3">
+    <div
+      className="space-y-3"
+      data-testid="circuit-simulator"
+      data-simulator-state={simulatorState}
+    >
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <h3 className="text-sm font-semibold">Circuit Simulator</h3>
