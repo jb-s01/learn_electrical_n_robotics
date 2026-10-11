@@ -2,11 +2,14 @@
   "name": "learn_electrical_n_robotics",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint .",
     "postinstall": "node scripts/fetch-circuitjs.mjs --optional",
     "setup:circuitjs": "node scripts/fetch-circuitjs.mjs",
     "db:migrate": "node scripts/migrate.mjs",
