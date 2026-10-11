@@ -1,12 +1,6 @@
 import { eq, and } from "drizzle-orm";
 import { connection } from "next/server";
-import { getDb, getOrCreateUser } from "@/lib/db/client";
-import {
-  lessonProgress,
-  trackEnrollment,
-  quizAttempts,
-  userSettings,
-} from "@/lib/db/schema";
+import { ImportProgressDataSchema } from "@/lib/api/schemas";
 import {
   curriculum,
   getLessonById,
@@ -14,7 +8,17 @@ import {
   getLessonStatus,
   type ProgressMap,
 } from "@/lib/curriculum";
+import type { QuizSubmitResult } from "@/lib/curriculum/quiz-types";
+import { gradeQuiz } from "@/lib/curriculum/quizzes";
 import type { TrackId } from "@/lib/curriculum/types";
+import { getDb, getOrCreateUser } from "@/lib/db/client";
+import {
+  lessonProgress,
+  trackEnrollment,
+  quizAttempts,
+  userSettings,
+} from "@/lib/db/schema";
+import { InvalidProgressInputError } from "@/lib/progress/errors";
 
 export async function getProgressData() {
   // better-sqlite3 is synchronous, so without this the dashboard is prerendered
@@ -117,7 +121,7 @@ async function upsertProgress(
 
 export async function markLessonRead(userId: number, lessonId: string) {
   const lesson = getLessonById(lessonId);
-  if (!lesson) throw new Error("Lesson not found");
+  if (!lesson) throw new InvalidProgressInputError("Lesson not found");
 
   await upsertProgress(userId, lessonId, {
     status: "in_progress",
@@ -127,34 +131,59 @@ export async function markLessonRead(userId: number, lessonId: string) {
   await checkAndComplete(userId, lessonId);
 }
 
+function percentScore(correct: number, totalQuestions: number): number {
+  if (totalQuestions <= 0) {
+    throw new InvalidProgressInputError("Quiz has no questions");
+  }
+  return Math.round((correct / totalQuestions) * 100);
+}
+
 export async function submitQuiz(
   userId: number,
   lessonId: string,
-  score: number,
-  totalQuestions: number
-) {
+  answers: readonly number[]
+): Promise<QuizSubmitResult> {
   const db = getDb();
   const lesson = getLessonById(lessonId);
-  if (!lesson) throw new Error("Lesson not found");
+  if (!lesson) throw new InvalidProgressInputError("Lesson not found");
+
+  const graded = gradeQuiz(lessonId, answers);
+  if (!graded.ok) {
+    throw new InvalidProgressInputError(graded.error);
+  }
+
+  const score = percentScore(graded.correct, graded.totalQuestions);
 
   await db.insert(quizAttempts).values({
     userId,
     lessonId,
-    score,
-    totalQuestions,
+    score: graded.correct,
+    totalQuestions: graded.totalQuestions,
   });
 
-  const pct = Math.round((score / totalQuestions) * 100);
   await upsertProgress(userId, lessonId, {
     status: "in_progress",
-    quizScore: pct,
+    quizScore: score,
   });
 
   await checkAndComplete(userId, lessonId);
-  return { score: pct };
+
+  const passed =
+    !lesson.completion.quizMinScore || score >= lesson.completion.quizMinScore;
+
+  return {
+    score,
+    correct: graded.correct,
+    totalQuestions: graded.totalQuestions,
+    passed,
+    questions: graded.questions,
+  };
 }
 
 export async function markLabComplete(userId: number, lessonId: string) {
+  const lesson = getLessonById(lessonId);
+  if (!lesson) throw new InvalidProgressInputError("Lesson not found");
+
   await upsertProgress(userId, lessonId, {
     status: "in_progress",
     labComplete: true,
@@ -265,35 +294,28 @@ export async function exportProgress(userId: number) {
   return { progress, tracks, settings: settings[0] };
 }
 
-export async function importProgress(
-  userId: number,
-  data: {
-    progress: Array<{
-      lessonId: string;
-      status: string;
-      quizScore?: number | null;
-      labComplete?: boolean | null;
-      readSections?: boolean | null;
-    }>;
-    tracks: Array<{ trackId: string; enrolled: boolean }>;
+export async function importProgress(userId: number, data: unknown) {
+  const parsed = ImportProgressDataSchema.safeParse(data);
+  if (!parsed.success) {
+    throw new InvalidProgressInputError("Invalid progress import");
   }
-) {
+
   await resetProgress(userId);
   const db = getDb();
 
-  for (const p of data.progress) {
+  for (const entry of parsed.data.progress) {
     await db.insert(lessonProgress).values({
       userId,
-      lessonId: p.lessonId,
-      status: p.status as "locked" | "available" | "in_progress" | "completed",
-      quizScore: p.quizScore,
-      labComplete: p.labComplete ?? false,
-      readSections: p.readSections ?? false,
-      completedAt: p.status === "completed" ? new Date() : null,
+      lessonId: entry.lessonId,
+      status: entry.status,
+      quizScore: entry.quizScore,
+      labComplete: entry.labComplete ?? false,
+      readSections: entry.readSections ?? false,
+      completedAt: entry.status === "completed" ? new Date() : null,
     });
   }
 
-  for (const t of data.tracks) {
-    await enrollTrack(userId, t.trackId as TrackId, t.enrolled);
+  for (const track of parsed.data.tracks) {
+    await enrollTrack(userId, track.trackId, track.enrolled);
   }
 }

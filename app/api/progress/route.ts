@@ -1,15 +1,25 @@
 import { NextResponse } from "next/server";
-import {
-  getProgressData,
-  markLessonRead,
-  submitQuiz,
-  markLabComplete,
-  enrollTrack,
-  resetProgress,
-  exportProgress,
-  importProgress,
-} from "@/lib/progress/service";
+import { ZodError } from "zod";
+import { ProgressActionSchema } from "@/lib/api/schemas";
 import { getOrCreateUser } from "@/lib/db/client";
+import { InvalidProgressInputError } from "@/lib/progress/errors";
+import {
+  enrollTrack,
+  exportProgress,
+  getProgressData,
+  importProgress,
+  markLabComplete,
+  markLessonRead,
+  resetProgress,
+  submitQuiz,
+} from "@/lib/progress/service";
+
+function invalidInputResponse(error: ZodError) {
+  return NextResponse.json(
+    { error: "Invalid input", issues: error.flatten() },
+    { status: 400 }
+  );
+}
 
 export async function GET() {
   try {
@@ -27,29 +37,34 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const user = await getOrCreateUser();
-    const body = await request.json();
-    const { action } = body;
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+    }
 
-    switch (action) {
+    const parsed = ProgressActionSchema.safeParse(body);
+    if (!parsed.success) {
+      return invalidInputResponse(parsed.error);
+    }
+
+    const action = parsed.data;
+    switch (action.action) {
       case "markRead": {
-        await markLessonRead(user.id, body.lessonId);
+        await markLessonRead(user.id, action.lessonId);
         break;
       }
       case "submitQuiz": {
-        const result = await submitQuiz(
-          user.id,
-          body.lessonId,
-          body.score,
-          body.totalQuestions
-        );
+        const result = await submitQuiz(user.id, action.lessonId, action.answers);
         return NextResponse.json(result);
       }
       case "markLabComplete": {
-        await markLabComplete(user.id, body.lessonId);
+        await markLabComplete(user.id, action.lessonId);
         break;
       }
       case "enrollTrack": {
-        await enrollTrack(user.id, body.trackId, body.enrolled);
+        await enrollTrack(user.id, action.trackId, action.enrolled);
         break;
       }
       case "reset": {
@@ -57,16 +72,22 @@ export async function POST(request: Request) {
         break;
       }
       case "import": {
-        await importProgress(user.id, body.data);
+        await importProgress(user.id, action.data);
         break;
       }
-      default:
+      default: {
+        const _exhaustive: never = action;
+        void _exhaustive;
         return NextResponse.json({ error: "Unknown action" }, { status: 400 });
+      }
     }
 
     const data = await getProgressData();
     return NextResponse.json(data);
   } catch (error) {
+    if (error instanceof InvalidProgressInputError) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
     console.error("Progress POST error:", error);
     return NextResponse.json(
       { error: "Failed to update progress" },
