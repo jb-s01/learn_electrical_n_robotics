@@ -1,31 +1,46 @@
-import { buildSystemPrompt } from "@/lib/ai/system-prompt";
-import { ChatContextSchema } from "@/lib/ai/context";
-import { getOrCreateUser, getDb, getUserSettings } from "@/lib/db/client";
-import { userSettings } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import {
   getOllamaBaseUrl,
-  resolveOllamaModel,
   OllamaModelNotFoundError,
   parseOllamaError,
+  resolveOllamaModel,
 } from "@/lib/ai/ollama";
+import { buildSystemPrompt } from "@/lib/ai/system-prompt";
+import { ChatRequestSchema } from "@/lib/api/schemas";
+import { getDb, getOrCreateUser, getUserSettings } from "@/lib/db/client";
+import { userSettings } from "@/lib/db/schema";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
 
+function jsonError(body: unknown, status: number) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { "Content-Type": "application/json" },
+  });
+}
+
 export async function POST(req: Request) {
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return jsonError({ error: "Invalid JSON" }, 400);
+  }
+
+  const parsed = ChatRequestSchema.safeParse(body);
+  if (!parsed.success) {
+    return jsonError(
+      { error: "Invalid input", issues: parsed.error.flatten() },
+      400
+    );
+  }
+
   try {
     const user = await getOrCreateUser();
     const settings = await getUserSettings(user.id);
-    const { messages, context } = await req.json();
 
-    const parsedContext = context
-      ? ChatContextSchema.safeParse(context)
-      : { success: false as const, data: undefined };
-
-    const system = buildSystemPrompt(
-      parsedContext.success ? parsedContext.data : undefined
-    );
+    const system = buildSystemPrompt(parsed.data.context);
 
     const requestedModel =
       settings.ollamaModel ??
@@ -45,11 +60,13 @@ export async function POST(req: Request) {
 
     const baseUrl = getOllamaBaseUrl();
 
+    // Validated turns are only user/assistant, so this server prompt is the
+    // only system message Ollama receives.
     const ollamaMessages = [
       { role: "system", content: system },
-      ...messages.map((m: { role: string; content: string }) => ({
-        role: m.role,
-        content: m.content,
+      ...parsed.data.messages.map((message) => ({
+        role: message.role,
+        content: message.content,
       })),
     ];
 
