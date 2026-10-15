@@ -81,7 +81,7 @@ Lessons work without Ollama — only the chat feature requires it.
 - Next.js 16 (App Router) + TypeScript
 - Tailwind CSS
 - CircuitJS1 (self-hosted; the compiled build is downloaded into `public/circuitjs/circuitjs1/` by `scripts/fetch-circuitjs.mjs`, set `CIRCUITJS_BASE_URL` to use a mirror)
-- Ollama + Vercel AI SDK
+- Ollama (local HTTP API)
 - SQLite + Drizzle ORM
 - MDX lesson content
 
